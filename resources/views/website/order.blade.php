@@ -30,21 +30,40 @@
                 <!-- 🌟 Personal Information Section -->
                 <h4>Personal Information</h4>
                 <hr>
-                <div class="form-group">
-                    <label>Select Country<span class="required">*</span></label>
-                    <select class="form-control" name="country" id="countrySelect" required>
-                        {{-- <option value="">Select Country</option> --}}
-                    </select>
-                </div>
-                <input type="hidden" name="service" id="serviceInput" value="{{ old('service') }}" required>
+                <!--<div class="form-group">-->
+                <!--    <label>Select Country<span class="required">*</span></label>-->
+                <!--    <select class="form-control" name="country" id="countrySelect" required>-->
+                <!--        {{-- <option value="">Select Country</option> --}}-->
+                <!--    </select>-->
+                <!--</div>-->
+                <!--<input type="hidden" name="service" id="serviceInput" value="{{ old('service') }}" required>-->
                 
                 
-                
+                <!-- <div class="form-group">-->
+                <!--    <label>Item Category<span class="required">*</span></label>-->
+                <!--    <select class="form-control" name="item_category" id="categorySelect" required>-->
+                <!--        {{-- <option value="">Select Category</option> --}}-->
+                <!--    </select>-->
+                <!--</div>-->
                 
                
                 
                 
              
+<div class="form-group">
+    <label>Select Country<span class="required">*</span></label>
+    <select class="form-control" name="country" id="countrySelect" required>
+    </select>
+</div>
+
+<!-- Hidden Inputs to Store IDs in Required Keys -->
+<input type="hidden" name="service" id="serviceInput" value="{{ old('service') }}" required>
+<input type="hidden" name="country" id="countryInput" value="{{ old('country') }}" required>
+<input type="hidden" name="item_category" id="categoryInput" value="{{ old('item_category') }}" required>
+
+
+
+
 
                
 
@@ -111,13 +130,12 @@
                 
                 
                
+               
                 <div class="form-group">
-                    <label>Item Category<span class="required">*</span></label>
-                    <select class="form-control" name="item_category" id="categorySelect" required>
-                        {{-- <option value="">Select Category</option> --}}
-                    </select>
-                </div>
-                
+    <label>Item Category<span class="required">*</span></label>
+    <select class="form-control" name="item_category" id="categorySelect" required>
+    </select>
+</div>
                 
                
                 <div class="form-group" id="otherCategoryDiv" style="display: none;">
@@ -224,48 +242,100 @@
         </div>
     </div>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-                <script>
-                $(document).ready(function () {
-                    // Load Countries on Page Load
-                    $.ajax({
-                        url: "/api/countries",
-                        type: "GET",
-                        success: function (data) {
-                            let countryDropdown = $("#countrySelect");
-                            countryDropdown.append('<option value="">Select Country</option>');
-                            $.each(data, function (key, country) {
-                                countryDropdown.append('<option value="' + country.id + '">' + country.name + '</option>');
-                            });
-                        }
+<!--                <script>-->
+<!--$(document).ready(function () {-->
+    <!--// Load Countries on Page Load-->
+<!--    $.ajax({-->
+<!--        url: "https://textcode.co.in/CrossBorder/public/api/countries",-->
+<!--        type: "GET",-->
+<!--        success: function (data) {-->
+<!--            let countryDropdown = $("#countrySelect");-->
+<!--            countryDropdown.append('<option value="">Select Country</option>');-->
+<!--            $.each(data, function (key, country) {-->
+<!--                countryDropdown.append('<option value="' + country.id + '">' + country.name + '</option>');-->
+<!--            });-->
+<!--        }-->
+<!--    });-->
+
+    <!--// Fetch Data When Country is Selected-->
+<!--    $("#countrySelect").change(function () {-->
+<!--        let countryId = $(this).val();-->
+<!--        let serviceInput = $("#serviceInput");-->
+<!--        let categoryDropdown = $("#categorySelect");-->
+
+<!--        categoryDropdown.empty().append('<option value="">Select Category</option>');-->
+<!--        serviceInput.val("");-->
+
+<!--        if (countryId) {-->
+<!--            $.ajax({-->
+<!--                url: "https://textcode.co.in/CrossBorder/public/api/dropdown-data/" + countryId,-->
+<!--                type: "GET",-->
+<!--                success: function (data) {-->
+                    <!--// Update Service Input-->
+<!--                    serviceInput.val(data.service.name);-->
+
+                    <!--// Populate Category Dropdown-->
+<!--                    $.each(data.categories, function (key, category) {-->
+<!--                        categoryDropdown.append('<option value="' + category.id + '">' + category.name + '</option>');-->
+<!--                    });-->
+<!--                }-->
+<!--            });-->
+<!--        }-->
+<!--    });-->
+<!--});-->
+<!--</script>-->
+<script>
+$(document).ready(function () {
+    // Load Countries on Page Load
+    $.ajax({
+        url: "https://textcode.co.in/CrossBorder/public/api/countries",
+        type: "GET",
+        success: function (data) {
+            let countryDropdown = $("#countrySelect");
+            countryDropdown.append('<option value="">Select Country</option>');
+            $.each(data, function (key, country) {
+                countryDropdown.append('<option value="' + country.id + '">' + country.name + '</option>');
+            });
+        }
+    });
+
+    // Fetch Data When Country is Selected
+    $("#countrySelect").change(function () {
+        let countryId = $(this).val();
+        let serviceInput = $("#serviceInput");
+        let countryInput = $("#countryInput");
+        let categoryDropdown = $("#categorySelect");
+        let categoryInput = $("#categoryInput");
+
+        // Reset Fields
+        categoryDropdown.empty().append('<option value="">Select Category</option>');
+        serviceInput.val("");
+        countryInput.val(countryId); // Store country_id in country key
+
+        if (countryId) {
+            $.ajax({
+                url: "https://textcode.co.in/CrossBorder/public/api/dropdown-data/" + countryId,
+                type: "GET",
+                success: function (data) {
+                    // Store Service ID in the service key
+                    serviceInput.val(data.service.id); 
+
+                    // Populate Category Dropdown
+                    $.each(data.categories, function (key, category) {
+                        categoryDropdown.append('<option value="' + category.id + '">' + category.name + '</option>');
                     });
-                
-                    // Fetch Data When Country is Selected
-                    $("#countrySelect").change(function () {
-                        let countryId = $(this).val();
-                        let serviceInput = $("#serviceInput");
-                        let categoryDropdown = $("#categorySelect");
-                
-                        categoryDropdown.empty().append('<option value="">Select Category</option>');
-                        serviceInput.val("");
-                
-                        if (countryId) {
-                            $.ajax({
-                                url: "/api/dropdown-data/" + countryId,
-                                type: "GET",
-                                success: function (data) {
-                                    // Update Service Input
-                                    serviceInput.val(data.service.name);
-                
-                                    // Populate Category Dropdown
-                                    $.each(data.categories, function (key, category) {
-                                        categoryDropdown.append('<option value="' + category.id + '">' + category.name + '</option>');
-                                    });
-                                }
-                            });
-                        }
+
+                    // Update category_id when selecting a category
+                    categoryDropdown.change(function () {
+                        categoryInput.val($(this).val()); // Store category_id in item_category key
                     });
-                });
-                </script>
+                }
+            });
+        }
+    });
+});
+</script>
+
 
     <style>
         .form-box {
