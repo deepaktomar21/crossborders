@@ -65,79 +65,19 @@
             </li>
 
 
-           <li class="heading">Wesbite </li>
+           <li class="heading">Category </li>
             <li>
                 <a href="javascript:;"><i class="sidebar-item-icon fa fa-envelope"></i>
-                    <span class="nav-label">Country,Service etc</span><i class="fa fa-angle-left arrow"></i></a>
+                    <span class="nav-label">Category</span><i class="fa fa-angle-left arrow"></i></a>
                 <ul class="nav-2-level collapse">
-                    <li>
-                        <a href="{{ route('countries.index') }}">Country</a>
-                    </li>
-                    <li>
-                        <a href="{{ route('services.index') }}">Service</a>
-                    </li>
+                    
                     <li>
                         <a href="{{ route('categories.index') }}">Category</a>
                     </li>
                     
                 </ul>
             </li>
-            {{--  <li>
-                <a href="calendar.html"><i class="sidebar-item-icon fa fa-calendar"></i>
-                    <span class="nav-label">Calendar</span>
-                </a>
-            </li>
-            <li>
-                <a href="javascript:;"><i class="sidebar-item-icon fa fa-file-text"></i>
-                    <span class="nav-label">Pages</span><i class="fa fa-angle-left arrow"></i></a>
-                <ul class="nav-2-level collapse">
-                    <li>
-                        <a href="invoice.html">Invoice</a>
-                    </li>
-                    <li>
-                        <a href="profile.html">Profile</a>
-                    </li>
-                    <li>
-                        <a href="login.html">Login</a>
-                    </li>
-                    <li>
-                        <a href="register.html">Register</a>
-                    </li>
-                    <li>
-                        <a href="lockscreen.html">Lockscreen</a>
-                    </li>
-                    <li>
-                        <a href="forgot_password.html">Forgot password</a>
-                    </li>
-                    <li>
-                        <a href="error_404.html">404 error</a>
-                    </li>
-                    <li>
-                        <a href="error_500.html">500 error</a>
-                    </li>
-                </ul>
-            </li>
-            <li>
-                <a href="javascript:;"><i class="sidebar-item-icon fa fa-sitemap"></i>
-                    <span class="nav-label">Menu Levels</span><i class="fa fa-angle-left arrow"></i></a>
-                <ul class="nav-2-level collapse">
-                    <li>
-                        <a href="javascript:;">Level 2</a>
-                    </li>
-                    <li>
-                        <a href="javascript:;">
-                            <span class="nav-label">Level 2</span><i class="fa fa-angle-left arrow"></i></a>
-                        <ul class="nav-3-level collapse">
-                            <li>
-                                <a href="javascript:;">Level 3</a>
-                            </li>
-                            <li>
-                                <a href="javascript:;">Level 3</a>
-                            </li>
-                        </ul>
-                    </li>
-                </ul>
-            </li>  --}}
+           
         </ul>
     </div>
 </nav>
