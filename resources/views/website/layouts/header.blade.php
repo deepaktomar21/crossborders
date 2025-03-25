@@ -10,6 +10,8 @@
                 <h4 style="font-family: Copperplate, Papyrus, fantasy; color: rgb(255, 176, 6);">
                     <a href="{{ route('index') }}" class="logo" style="text-decoration: none; color: inherit;">
                         <span style="font-size: 32px; font-weight: bold; display: block;">JoSafe</span>
+                        <span style="font-size: 16px; font-weight: bold; display: block;"> Errand & Delivery Service</span>
+
                         <span style="font-size: 14px; display: block;">UK-Ghana Shopper</span>
                     </a>
                 </h4>
@@ -29,8 +31,8 @@
                                     <li>
                                         <a href="#" style="color: rgb(255, 176, 6);">Browse Services</a>
                                         <ul style="display: none;">
-                                            <li><a href="/#service">Ghana</a></li>
-                                            <li><a href="/#service">UK</a></li>
+                                            <li><a href="#service">Ghana</a></li>
+                                            <li><a href="#service">UK</a></li>
                                         </ul>
                                     </li>
                                     <li>

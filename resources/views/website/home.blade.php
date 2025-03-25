@@ -33,14 +33,14 @@
                         }
                     }'>
                         <div class="intro-slide banner-lg"
-                            style="background-image: url('{{ asset('website/assets/images/demos/demo-22/slider/slide-1.jpg') }}');">
+                            style="background-image: url('{{ asset('website/assets/images/demos/demo-22/slider/WhatsApp Image 2025-03-25 at 13.43.31_382c1403.jpg') }}');">
                             <div class="intro text-center">
                                 <div class="title">
                                     <a>Get Every thing</a>
                                 </div>
                                 <div class="content">
-                                    <h3><span>you need </span>from<br></h3>
-                                    <h4>Ghana or UK in 3 Days</h4>
+                                    <h3 ><span>you need from </span><br></h3>
+                                    <h4 ><span>Ghana or UK in 3 Days</span></h4>
                                 </div>
 
                             </div>
@@ -56,6 +56,7 @@
 
     {{-- <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet"> --}}
     <style>
+        
         .shop-section {
             background-color: white;
             padding: 40px;
@@ -100,9 +101,9 @@
     <div class="container mt-5">
         <div class="shop-section row">
             <div class="col-md-5">
-                <h3>Shop from UK to Ghana </h3>
+                <h3>Seamless Shopping between Ghana and UK</h3>
 
-                <h3>Shop from Ghana to UK </h3>
+                <h3>Live in Ghana and Shop in the UK </h3>
                 <h5>—Hassle-Free!</>
                 </h5>
             </div>
@@ -110,7 +111,6 @@
             <div class="col-md-6">
                 <p>Pay in Cedis to shop for goods on ebay, Amazon, Costco, Booker, etc and
                     get them shipped to you in Ghana in less than 3 days.!</p>
-
             </div>
         </div>
     </div>
@@ -152,7 +152,7 @@
 
                     <div id="countryButtons" class="d-flex flex-wrap gap-2"></div>
                     <input type="hidden" name="country" id="selectedCountry">
-                    <button type="button" class="btn btn-secondary mt-3" id="nextToStep2" disabled>Next</button>
+                    <button type="button" class="btn btn-secondary w-100 mt-3" id="nextToStep2" disabled>Next</button>
                 </div>
 
                 <!-- Step 2: Select Service -->
@@ -160,15 +160,15 @@
                     <h2 class="text-center">Select Service</h2>
                     <div id="serviceButtons" class="d-flex flex-wrap gap-2"></div>
                     <input type="hidden" name="service" id="selectedService">
-                    <button type="button" class="btn btn-secondary mt-3" id="backToStep1">Back</button>
-                    <button type="button" class="btn btn-primary mt-3" id="nextToStep3" disabled>Next</button>
+                    <button type="button" class="btn btn-secondary w-100 mt-3" id="backToStep1">Back</button>
+                    <button type="button" class="btn btn-primary w-100 mt-3" id="nextToStep3" disabled>Next</button>
                 </div>
 
                 <!-- Step 3: Dynamic Forms -->
                 <div id="step3" style="display: none;">
                     <div id="formContainer"></div> <!-- Buy or Express Form will be injected here -->
-                    <button type="button" class="btn btn-secondary mt-3" id="backToStep2">Back</button>
-                    <button type="submit" class="btn btn-success mt-3">Submit Order</button>
+                    <button type="button" class="btn btn-secondary w-100 mt-3" id="backToStep2">Back</button>
+                    <button type="submit" class="btn btn-success w-100 mt-3">Submit Order</button>
                 </div>
             </form>
             <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
@@ -212,7 +212,7 @@
                                     let serviceContainer = $("#serviceButtons").empty();
                                     $.each(services, function(index, service) {
                                         serviceContainer.append(`
-                            <button type="button" class="btn btn-outline-info w-100 mb-2 service-btn" 
+                            <button type="button" class="btn btn-primary w-100 mb-2 service-btn" 
                                 data-id="${service.id}">${service.name}
                             </button>
                         `);
