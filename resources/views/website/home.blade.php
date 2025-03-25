@@ -168,7 +168,7 @@
                 <div id="step3" style="display: none;">
                     <div id="formContainer"></div> <!-- Buy or Express Form will be injected here -->
                     <button type="button" class="btn btn-secondary w-100 mt-3" id="backToStep2">Back</button>
-                    <button type="submit" class="btn btn-success w-100 mt-3">Submit Order</button>
+                    <button type="submit" class="btn btn-primary w-100 mt-3">Submit Order</button>
                 </div>
             </form>
             <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
