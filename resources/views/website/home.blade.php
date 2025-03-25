@@ -11,7 +11,7 @@
 
     <div class="container text-center shop">
         <h2 class="mt-4 mb-5 title"> Express Delivery of all your items and shopping
-            Trade & Personal</h2>
+            <br>Trade & Personal</h2>
 
     </div>
 
