@@ -29,7 +29,7 @@
                                         <a href="{{ route('index') }}" style="color: rgb(255, 176, 6);">Home</a>
                                     </li>
                                     <li>
-                                        <a href="#" style="color: rgb(255, 176, 6);">Browse Services</a>
+                                        <a href="#" style="color: rgb(255, 176, 6);"   color: #E6A545;>Browse Services</a>
                                         <ul style="display: none;">
                                             <li><a href="#service">Ghana</a></li>
                                             <li><a href="#service">UK</a></li>
