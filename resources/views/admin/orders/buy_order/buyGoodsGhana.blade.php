@@ -1,23 +1,23 @@
 @extends('admin.partials.layout')
 
-@section('title', 'Express Delivery Orders List')
+@section('title', 'Buy Orders List')
 
 @section('content')
     <div class="content-wrapper">
         <!-- START PAGE CONTENT-->
         <div class="page-heading">
-            <h1 class="page-title">Express Delivery Orders List</h1>
+            <h1 class="page-title">Want to Buy Goods Ghana Orders List</h1>
             <ol class="breadcrumb">
                 <li class="breadcrumb-item">
                     <a href="{{ route('admin.dashboard') }}"><i class="la la-home font-20"></i></a>
                 </li>
-                <!--<li class="breadcrumb-item">User List</li>-->
+               
             </ol>
         </div>
         <div class="page-content fade-in-up">
             <div class="ibox">
                 <div class="ibox-head">
-                    <div class="ibox-title">Express Delivery Orders List</div>
+                    <div class="ibox-title">Want to Buy  Goods Ghana Orders List</div>
                     @if (session('success'))
                         <div class="alert alert-success">
                             {{ session('success') }}
@@ -55,10 +55,10 @@
                                     <tr>
                                         <td>{{ $index + 1 }}</td> <!-- S.No. (Starts from 1) -->
                                         <td>{{ $order->tracking_id }}</td>
-                                        <td>{{ $order->sender_name }}</td>
-                                        <td>{{ $order->sender_email }}</td>
-                                        <td>{{ $order->sender_phone }}</td>
-                                        <td>{{ $order->service }}</td>
+                                        <td>{{ $order->buyer_name }}</td>
+                                        <td>{{ $order->buyer_email }}</td>
+                                        <td>{{ $order->buyer_phone }}</td>
+                                        <td>{{ $order->service->name }}</td>
 
                                         <td><span class="badge badge-info">{{ $order->order_status }}</span></td>
                                         <td><span class="badge badge-warning">{{ $order->delivery_status }}</span> <br>
@@ -68,12 +68,18 @@
                                             </button>
                                         </td>
 
+
+
                                         <td>{{ $order->created_at->format('d M Y') }}</td>
                                         <td>
-                                            <a href="{{ route('admin.expressorders.show', $order->id) }}" class="btn btn-info btn-sm">
+
+                                            <!-- View Order Button with Eye Icon -->
+                                            <a href="{{ route('admin.buyerorders.show', $order->id) }}" class="btn btn-info btn-sm">
                                                 <i data-feather="eye">View</i>
                                             </a>
-                                         
+                                            
+
+                                            <!-- Delete Button with Trash Icon -->
                                             <button class="btn btn-danger btn-sm delete-order"
                                                 data-id="{{ $order->id }}">
                                                 <i data-feather="trash-2">DELETE</i>

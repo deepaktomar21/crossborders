@@ -11,7 +11,7 @@
         <div class="ibox-head">
             <div class="ibox-title">Order Details</div>
             <div>
-                <a href="{{ route('admin.expressorders.index') }}" class="btn btn-primary">Back</a>
+                <a href="javascript:history.back();" class="btn btn-primary">Back</a>
             </div>
             @if (session('success'))
                 <div class="alert alert-success">{{ session('success') }}</div>

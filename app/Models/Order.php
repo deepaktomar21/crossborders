@@ -56,4 +56,17 @@ class Order extends Model
         
 
     ];
+
+    public function service()
+    {
+        return $this->belongsTo(Service::class);
+    }
+    public function country()
+    {
+        return $this->belongsTo(Country::class);
+    }
+
+    public function Category(){
+        return $this->belongsTo(Category::class);
+    }
 }

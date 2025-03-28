@@ -146,6 +146,7 @@
 
     <script>
         $(document).ready(function() {
+            // Initialize DataTable
             $('#categories-table').DataTable({
                 "paging": true,
                 "searching": true,
@@ -154,28 +155,38 @@
                 "lengthMenu": [10, 25, 50, 100],
                 "pageLength": 10
             });
-
-            // Delete Category
+    
+            // Delete Category Function
             $('.delete-category').click(function() {
                 let categoryId = $(this).data('id');
+    
                 if (confirm('Are you sure you want to delete this category?')) {
                     $.ajax({
-                        url: "/categories/" + categoryId,
+                        url: "{{ route('categories.destroy', ':categoryId') }}".replace(':categoryId', categoryId),
                         type: "POST",
                         data: {
                             _method: "DELETE",
                             _token: "{{ csrf_token() }}"
                         },
                         success: function(response) {
-                            alert(response.message);
-                            location.reload();
+                            if (response.success) {
+                                alert(response.message); // Show success message
+                                location.reload();
+                            } else {
+                                alert('Something went wrong. Please try again.');
+                            }
                         },
                         error: function(xhr) {
-                            alert('Error deleting category.');
+                            let errorMessage = 'Error deleting category.';
+                            if (xhr.responseJSON && xhr.responseJSON.message) {
+                                errorMessage = xhr.responseJSON.message;
+                            }
+                            alert(errorMessage);
                         }
                     });
                 }
             });
         });
     </script>
+    
 @endsection

@@ -63,13 +63,17 @@ Route::group(['prefix' => 'admin'], function () {
 
         ///OverAll-Order Module
         //buy-order-module
-        Route::get('/buy-orders', [AdminOrderController::class, 'BuyIndexOrder'])->name('admin.buyorders.index');
+        Route::get('/orders/buy-goods/uk', [AdminOrderController::class, 'BuyUkOrder'])->name('admin.orders.buyGoodsUK');
+        Route::get('/orders/buy-goods/ghana', [AdminOrderController::class, 'BuyGhanaOrder'])->name('admin.orders.buyGoodsGhana');
         Route::get('/buy-orders-view/{id}', [AdminOrderController::class, 'BuyShowOrder'])->name('admin.buyerorders.show');
 
         //exprss-order-module
-        Route::get('/Express-orders', [AdminOrderController::class, 'ExpressIndexOrder'])->name('admin.expressorders.index');
+       
         Route::get('/Express-orders-view/{id}', [AdminOrderController::class, 'ExpressShowOrder'])->name('admin.expressorders.show');
+        Route::get('/orders/express-delivery/uk', [AdminOrderController::class, 'expressDeliveryUK'])->name('admin.expressDeliveryUK');
+        Route::get('/orders/express-delivery/ghana', [AdminOrderController::class, 'expressDeliveryGhana'])->name('admin.expressDeliveryGhana');
 
+        //edit/delt
         Route::post('/orders/update-status', [AdminOrderController::class, 'updateOrderStatus'])->name('admin.orders.updateStatus');
         Route::post('/orders/delete', [AdminOrderController::class, 'deleteOrder'])->name('admin.orders.delete');
         //end

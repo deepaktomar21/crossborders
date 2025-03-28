@@ -9,16 +9,24 @@ use Illuminate\Http\Request;
 
 class AdminOrderController extends Controller
 {
-    public function BuyIndexOrder()
+    public function BuyUkOrder()
 {
-    $orders = Order::whereIn('service_id', [3, 4])
+    $orders = Order::whereIn('service_id', [4])
+        ->with('service') 
+        ->latest()
+        ->get();
+
+    return view('admin.orders.buy_order.buyGoodsUK', compact('orders'));
+}
+public function BuyGhanaOrder()
+{
+    $orders = Order::whereIn('service_id', [3])
         ->with('service') // Eager load the related Service model
         ->latest()
         ->get();
 
-    return view('admin.orders.index', compact('orders'));
+    return view('admin.orders.buy_order.buyGoodsGhana', compact('orders'));
 }
-
 
     public function updateOrderStatus(Request $request)
     {
@@ -70,25 +78,34 @@ class AdminOrderController extends Controller
     
         // Check if order exists
         if (!$order) {
-            return redirect()->route('admin.buyorders.index')->with('error', 'Order not found.');
+            return back()->with('error', 'Order not found.');
         }
     
         // Return the view with order details
-        return view('admin.orders.show', compact('order'));
+        return view('admin.orders.buy_order.show', compact('order'));
     }
+    
     
 
 
     //express
-    public function ExpressIndexOrder()
+    public function expressDeliveryUK()
     {
-        $orders = Order::whereIn('service', [1, 2])
+        $orders = Order::whereIn('service', [1])
             ->latest()
             ->get();
 
-        return view('admin.orders.Expressorders', compact('orders'));
+        return view('admin.orders.express_order.ExpressordersUk', compact('orders'));
     }
 
+    public function expressDeliveryGhana()
+    {
+        $orders = Order::whereIn('service', [1])
+            ->latest()
+            ->get();
+
+        return view('admin.orders.express_order.ExpressordersGhana', compact('orders'));
+    }
     public function ExpressShowOrder($id)
     {
         // Fetch the order details based on ID
@@ -96,11 +113,12 @@ class AdminOrderController extends Controller
 
         // Check if order exists
         if (!$order) {
-            return redirect()->route('admin.expressorders.index')->with('error', 'Order not found.');
+            return back()->with('error', 'Order not found.');
         }
+    
 
         // Return the view with order details
-        return view('admin.orders.ExpressShow', compact('order'));
+        return view('admin.orders.express_order.Show', compact('order'));
     }
 
 
