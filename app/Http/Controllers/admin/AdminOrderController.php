@@ -10,13 +10,15 @@ use Illuminate\Http\Request;
 class AdminOrderController extends Controller
 {
     public function BuyIndexOrder()
-    {
-        $orders = Order::where('service', 'LIKE', '%Want to buy goods%')
-            ->latest()
-            ->get();
+{
+    $orders = Order::whereIn('service_id', [3, 4])
+        ->with('service') // Eager load the related Service model
+        ->latest()
+        ->get();
 
-        return view('admin.orders.index', compact('orders'));
-    }
+    return view('admin.orders.index', compact('orders'));
+}
+
 
     public function updateOrderStatus(Request $request)
     {
@@ -63,23 +65,24 @@ class AdminOrderController extends Controller
     }
     public function BuyShowOrder($id)
     {
-        // Fetch the order details based on ID
-        $order = Order::find($id);
-
+        // Fetch the order details based on ID and eager load relationships
+        $order = Order::with(['service', 'country', 'category'])->find($id);
+    
         // Check if order exists
         if (!$order) {
             return redirect()->route('admin.buyorders.index')->with('error', 'Order not found.');
         }
-
+    
         // Return the view with order details
         return view('admin.orders.show', compact('order'));
     }
+    
 
 
     //express
     public function ExpressIndexOrder()
     {
-        $orders = Order::where('service', 'LIKE', '%Express Delivery%')
+        $orders = Order::whereIn('service', [1, 2])
             ->latest()
             ->get();
 

@@ -58,7 +58,7 @@
                                         <td>{{ $order->buyer_name }}</td>
                                         <td>{{ $order->buyer_email }}</td>
                                         <td>{{ $order->buyer_phone }}</td>
-                                        <td>{{ $order->service }}</td>
+                                        <td>{{ $order->service->name }}</td>
 
                                         <td><span class="badge badge-info">{{ $order->order_status }}</span></td>
                                         <td><span class="badge badge-warning">{{ $order->delivery_status }}</span> <br>

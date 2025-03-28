@@ -8,11 +8,14 @@
                     <i class="icon-bars"></i>
                 </button>
                 <h4 style="font-family: Copperplate, Papyrus, fantasy; color: rgb(255, 176, 6);">
+                    
                     <a href="{{ route('index') }}" class="logo" style="text-decoration: none; color: inherit;">
-                        <span style="font-size: 32px; font-weight: bold; display: block;">JoSafe</span>
+                        <img src="{{ asset('website/assets/images/demos/demo-22/new-new-header-logo.png') }}" alt="JoSafe Logo" width="180" height="10">
+
+                        {{-- <span style="font-size: 32px; font-weight: bold; display: block;">JoSafe</span>
                         <span style="font-size: 16px; font-weight: bold; display: block;"> Errand & Delivery Service</span>
 
-                        <span style="font-size: 14px; display: block;">UK-Ghana Shopper</span>
+                        <span style="font-size: 14px; display: block;">UK-Ghana Shopper</span> --}}
                     </a>
                 </h4>
                 

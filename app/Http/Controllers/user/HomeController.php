@@ -24,6 +24,12 @@ class HomeController extends user
         $countries = Country::all();
         return view('website.home', compact('countries')); // Ensure this view exists
     }
+    public function faq()
+    {
+
+     
+        return view('website.faq'); // Ensure this view exists
+    }
 
     public function getCountries()
 {

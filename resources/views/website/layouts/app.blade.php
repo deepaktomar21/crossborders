@@ -8,19 +8,15 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <meta name="keywords" content="HTML5 Template">
-    <meta name="description" content="Molla - Bootstrap eCommerce Template">
-    <meta name="author" content="p-themes">
+    <meta name="keywords" content="">
+    <meta name="description" content="">
+    <meta name="author" content="">
 
-    <!-- Favicon -->
-    <link rel="apple-touch-icon" sizes="180x180" href="{{ asset('website/assets/images/icons/apple-touch-icon.png') }}">
     <link rel="icon" type="image/png" sizes="32x32"
-        href="{{ asset('website/assets/images/icons/favicon-32x32.png') }}">
+        href="{{ asset('website/assets/images/icons/image_copy_2-removebg-preview.png') }}">
     <link rel="icon" type="image/png" sizes="16x16"
-        href="{{ asset('website/assets/images/icons/favicon-16x16.png') }}">
-    <link rel="manifest" href="{{ asset('website/assets/images/icons/site.html') }}">
-    <link rel="mask-icon" href="{{ asset('website/assets/images/icons/safari-pinned-tab.svg') }}" color="#666666">
-    <link rel="shortcut icon" href="{{ asset('website/assets/images/icons/favicon.ico') }}">
+        href="{{ asset('website/assets/images/icons/image_copy_2-removebg-preview.png') }}">
+ 
     <link href='https://fonts.googleapis.com/css?family=Rock Salt' rel='stylesheet'>
     <meta name="apple-mobile-web-app-title" content="">
     <meta name="application-name" content="">

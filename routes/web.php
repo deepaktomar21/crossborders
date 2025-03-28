@@ -105,6 +105,8 @@ Route::group(['prefix' => 'admin'], function () {
 Route::get('/', [HomeController::class, 'homepage'])->name('index');
 
 Route::get('trackOrder', [HomeController::class, 'trackOrder'])->name('trackOrder');
+Route::get('faqs-page', [HomeController::class, 'faq'])->name('faq');
+
 Route::get('OrderForm', [HomeController::class, 'OrderForm'])->name('OrderForm');
 Route::post('/track-order', [OrderController::class, 'trackOrder'])->name('track.order');
 Route::post('/placeorder', [OrderController::class, 'store'])->name('placeorder');

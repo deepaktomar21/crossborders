@@ -4,13 +4,13 @@
             <div class="row">
                 <div class="col-sm-6 col-lg-3">
                     <div class="widget widget-about">
-                        {{-- <img src="{{ asset('website/assets/images/demos/demo-22/logo-footer.png') }}"
-                            class="footer-logo" alt="Footer Logo" width="100" height="25"> --}}
+                        <img src="{{ asset('website/assets/images/demos/demo-22/image-removebg-new.png') }}"
+                            class="footer-logo" alt="Footer Logo" width="160" height="25">
                         <h4 class="widget-title">JoSafe UK-Ghana Shopper</h4>
                         <p>Order and Ship Products Seamlessly Across Ghana and UK </p>
                         <p>Express Delivery of all your items and shopping
                             Trade & Personal</p>
-                        <div class="social-icons">
+                        {{-- <div class="social-icons">
                             <a href="#" class="social-icon" title="Facebook" target="_blank"><i
                                     class="icon-facebook-f"></i></a>
                             <a href="#" class="social-icon" title="Twitter" target="_blank"><i
@@ -21,7 +21,7 @@
                                     class="icon-youtube"></i></a>
                             <a href="#" class="social-icon" title="Pinterest" target="_blank"><i
                                     class="icon-pinterest"></i></a>
-                        </div><!-- End .soial-icons -->
+                        </div><!-- End .soial-icons --> --}}
                     </div><!-- End .widget about-widget -->
                 </div><!-- End .col-sm-6 col-lg-3 -->
 
@@ -29,7 +29,7 @@
                     <div class="widget">
                         <h4 class="widget-title">Useful Links</h4><!-- End .widget-title -->
                         <ul class="widget-list">
-                            <li><a href="">FAQ</a></li>
+                            <li><a href="{{route('faq')}}">FAQ</a></li>
                             <li><a href="">Contact us</a></li>
                             <li><a href="{{ route('login') }}">Log in</a></li>
                         </ul><!-- End .widget-list -->

@@ -21,12 +21,12 @@
             <div class="form-row">
                 <div class="col-md-6 mb-3">
                     <strong><label for="country">Country</label></strong>
-                    <input type="text" name="country" id="country" class="form-control" value="{{ $order->country }}" disabled>
+                    <input type="text" name="country_id" id="country_id" class="form-control" value="{{ $order->country->name }}" disabled>
                 </div>
             
                 <div class="col-md-6 mb-3">
                     <strong><label for="service">Service</label></strong>
-                    <input type="text" name="service" id="service" class="form-control" value="{{ $order->service }}" disabled>
+                    <input type="text" name="service" id="service" class="form-control" value="{{ $order->service->name }}" disabled>
                 </div>
             </div>
             
@@ -81,7 +81,7 @@
             <div class="form-row">
                 <div class="col-md-6 mb-3">
                     <strong><label for="item_category">Item Category</label></strong>
-                    <input type="text" name="item_category" id="item_category" class="form-control" value="{{ $order->item_category }}" disabled>
+                    <input type="text" name="item_category_id" id="item_category_id" class="form-control" value="{{ $order->item_category_id }}" disabled>
                 </div>
             
                 <div class="col-md-6 mb-3">
